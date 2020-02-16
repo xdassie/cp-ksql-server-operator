@@ -1,4 +1,6 @@
-FROM confluentinc/cp-ksql-server-operator:5.4.0.0
-RUN apt-get -y update && apt-get -y upgrade 
-RUN apt-get -y dist-upgrade 
+FROM alpine:3.11
+WORKDIR /opt
+RUN wget https://github.com/confluentinc/ksql/archive/v5.3.2-cp1-rc9.zip
+RUN unzip v5.3.2-cp1-rc9.zip
+RUN find ./
 
