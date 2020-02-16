@@ -5,7 +5,7 @@ RUN apk update && apk add bash
 RUN wget https://github.com/confluentinc/ksql/archive/v${KSQL_VERSION}.zip
 RUN unzip v${KSQL_VERSION}.zip
 RUN find ksql-${KSQL_VERSION} -name bin
-#ENTRYPOINT 
+ENTRYPOINT /bin/bash 
 CMD ["/opt/ksql-${KSQL_VERSION}/bin/ksql-server-start","/opt/ksql-${KSQL_VERSION}/config/ksql-server.properties"]
 
 
