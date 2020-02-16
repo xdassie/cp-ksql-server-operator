@@ -1,6 +1,8 @@
 FROM alpine:3.11
 WORKDIR /opt
-RUN wget https://github.com/confluentinc/ksql/archive/v5.3.2-cp1-rc9.zip
-RUN unzip v5.3.2-cp1-rc9.zip
-RUN find ./ -name bin 
+ENV KSQL_VERSION 5.3.2-cp1-rc9
+RUN wget https://github.com/confluentinc/ksql/archive/v${KSQL_VERSION}.zip
+RUN unzip ${KSQL_VERSION}.zip
+ENTRYPOINT ${KSQL_VERSION}/bin/ksql-server-start
+RUN find ${KSQL_VERSION}/bin  
 
